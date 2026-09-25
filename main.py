@@ -155,9 +155,10 @@ def make_led_handler(pins=(17, 27, 22, 23, 24)):
     try:
         from gpiozero import LED
         leds = [LED(p) for p in pins]
-    except Exception:
+    except Exception as e:
         leds = None
-        print("gpiozero not available - printing gestures instead of driving LEDs")
+        print(f"gpiozero not available ({type(e).__name__}: {e}) - "
+              "printing gestures instead of driving LEDs")
 
     def handler(gesture, fingers):
         n = fingers or 0

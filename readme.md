@@ -9,9 +9,14 @@
 - On bread boards on the power strip power will flow vertically, but on the middle of the board it flows horizontally (so offsetting where we place things in rows is a good practice)
 - For raspberry pi gpizero library we use the number of the pin from the board layout not the physical pin number
 
+# How to run it
 ```
 python -m venv --system-site-packages venv
 source venv/bin/activate
 pip install mediapipe opencv-python
 python main.py
 ```
+# Wiring idea
+- We have a wire from the raspberry pi ground to the ground row
+- We have 5 leds with their cathode connected to ground, and the anode connected to a 330 resistor
+- Our resistors are connected to wires connected to output GPIO pins from the raspberry pi
